@@ -2,23 +2,30 @@ project:
   type: website
 
 website:
-  title: "My Quarto Website"
+  title: "kinliegohl.github.io"
   navbar:
-    left:
-     -  text: "Home"
-        href: index.html
-     -  text: "About"
-        href: about.html
-     -  text: "Research"
-        href: teaching.html
-     -  text: "CV"
-        href: cv.pdf
-     -  text: "Projects"
-        href: _quarto.yml
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Research"
+        href: project.qmd
+      - text: "CV"
+        href: Gohl, Kinlie_Curriculum_Vitae.pdf
+      - text: Assignments
+        menu:
+          - href: assignment1.qmd
+            text: assignment1
+          - href: assignment2.qmd
+            text: assignment2
+          - href: assignment3.qmd
+            text: assignment3
 format:
   html:
     theme:
-      - cosmo
+      - pulse
+      - brand
     css: styles.css
     toc: true
 
