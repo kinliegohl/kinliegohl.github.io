@@ -13,14 +13,20 @@ website:
         href: project.qmd
       - text: "CV"
         href: Gohl, Kinlie_Curriculum_Vitae.pdf
+      - text: "Reflections"
+        menu: 
+          - href: Breiman and Shmueli.qmd
+            text: Breiman and Shmueli Comparison
+          - href: AI and Originality.qmd
+            text: Ai and Originality
       - text: Assignments
         menu:
           - href: assignment1.qmd
-            text: assignment1
+            text: Assignment 1
           - href: assignment2.qmd
-            text: assignment2
+            text: Assignment 2
           - href: assignment3.qmd
-            text: assignment3
+            text: Assignment 3
 format:
   html:
     theme:
