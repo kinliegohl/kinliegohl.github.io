@@ -1,6 +1,5 @@
 ---
 title: "Assignment1"
-format: html
 ---
 
 When working with the data set, I noticed that there were some missing data points; for instance, in highincome, votekmt_nm, and income. I also noticed that there are highly skewed variables like age. There is an overrepresented number of older adults compared to middle aged adults. There also seems to be duplicated results. There are many entries from different districts while some districts only have a couple entries. That may be because of the number of people in each district, or because of duplicated entries.
@@ -13,8 +12,8 @@ For votetsai, first we must identify what type of variable it is. It is a binary
 
 Frequency table for Tondu:
 
-![](frequency table tondu.PNG)
+![](frequency%20table%20tondu.PNG)
 
 Tondu Barchart:
 
-![](tondu barchart.PNG)
+![](tondu%20barchart.PNG)
