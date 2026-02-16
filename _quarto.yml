@@ -19,6 +19,8 @@ website:
             text: Breiman and Shmueli Comparison
           - href: AI and Originality.qmd
             text: AI and Originality
+          - href: Using AI in Projects.qmd
+            text: Using AI in Projects
       - text: Assignments
         menu:
           - href: assignment1.qmd

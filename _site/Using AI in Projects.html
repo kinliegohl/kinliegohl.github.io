@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignment 1 – kinliegohl.github.io</title>
+<title>Using AI in Projects – kinliegohl.github.io</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 1</h1>
+<h1 class="title">Using AI in Projects</h1>
 </div>
 
 
@@ -180,14 +180,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When working with the data set, I noticed that there were some missing data points; for instance, in highincome, votekmt_nm, and income. I also noticed that there are highly skewed variables like age. There is an overrepresented number of older adults compared to middle aged adults. There also seems to be duplicated results. There are many entries from different districts while some districts only have a couple entries. That may be because of the number of people in each district, or because of duplicated entries.</p>
-<p>To deal with missing values, I used a code source to clean up the data and change every missing value which was represented by -9 or 99, to N/A. I did so by running a summary to see which variables were missing using colSums(is.na(teds_2016)). Then the dplyr package changed all the variables.</p>
-<p>To compare different groups like Tondu, female, age and more we would first need to find out what each variable is. For example, female is binary because there is only the option of 1 or 2, male or female; this is the same for dpp, yes or no. Taiwanese and econ_worse are also binary. Other variables like age and income are continuous are number based. Edu is an ordinal variable because it can be ranked by education level. Next, the method used would be based on Tondu’s type. If Tondu was binary, I would use female and Tondu since they are both binary variables and run a bivariate analysis because there are only two variables with two options. A chi squared test would probably be the most useful for this variable interaction. To measure continuous and binary variables, like tondu and age, I would use a boxplot because you would be able to see how the age differs when Tondu is yes and when it is no. This is also a good way to show outliers because it would show up way outside of the boxed area. Since edu is an ordinal variable, a chi squared test would show if there’s an association or if the two variables are independent.</p>
-<p>For votetsai, first we must identify what type of variable it is. It is a binary variable because it only has 1 or 0, did or did not vote for Tsai. A chi-squared test would be used to see if each variable is independent of each other.</p>
-<p>Frequency table for Tondu:</p>
-<p><img src="frequency table tondu.PNG" class="img-fluid"></p>
-<p>Tondu Barchart:</p>
-<p><img src="tondu barchart.PNG" class="img-fluid"></p>
+<p>AI has many uses, from creating ideas, timelines, to-do lists, providing more defined questions, and breaking projects down into smaller steps. To start using AI, familiarity with AI models is crucial to understanding how AI can help you in your projects. Once comfortability with the AI model is established, you can use AI to help you brainstorm topics or refine research questions. Then, AI can help create a to-do list of the steps needed to produce the project. Next, AI could create a timeline of how long each step should take and how much time you should put into each section. This would give you a good estimate of the project length and how much effort is expected with each step. AI can even help you create the first rough draft of the project which helps ease the “blank page” anxiety most people have when first starting out. AI is incredibly helpful with creating rough drafts of assignments or projects but should never be used as the final draft. There are many steps we should use after using AI in the creation process to ensure originality and authenticity, including fact checking, editing, final draft creation without the use of AI, and AI documentation because not all the work was your own creation. AI is helpful with the brainstorming process and checking for mistakes but there is only so much AI can do, much of the work still falls on the individual to do and create.</p>
+<p>The two AI models I will be using on my project are ChatGPT and Grok. AI can be leveraged to speed up learning by summarizing articles, simplifying complex information, and teaching you how to ask more specific questions to achieve the desired results. I will also use AI to build an outline and curate steps that best fit my workflow and the project I want to create. &nbsp;</p>
 
 
 
