@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-About me!
+About me! My name is Kinlie
 
 I am a first year masters student in the Social Data Analytics and Research program at the University of Texas at Dallas. I completed my bachelors in Psychology from the University of Texas at Arlington. After graduating, I become a lab manager for the Kennedy and Rodrigue Cognitive Neuroscience lab at UTD.
 
