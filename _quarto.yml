@@ -1,8 +1,9 @@
 project:
   type: website
-
+  output-dir: docs/
+  
 website:
-  title: "kinliegohl.github.io"
+  title: "Kinlie Gohl Website"
   navbar:
     right:
       - text: "Home"
