@@ -24,6 +24,8 @@ website:
             text: AI and Originality
           - href: Using AI in Projects.qmd
             text: Using AI in Projects
+          - href: Humans and Knowledge.qmd
+            text: Humans and Knowledge
       - text: Assignments
         menu:
           - href: Assignment 1.pdf
