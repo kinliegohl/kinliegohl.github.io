@@ -26,11 +26,11 @@ website:
             text: Using AI in Projects
       - text: Assignments
         menu:
-          - href: assignment 1.pdf
+          - href: Assignment 1.pdf
             text: Assignment 1
           - href: Assignment 2.pdf
             text: Assignment 2
-          - href: assignment 3.qmd
+          - href: Assignment 3.qmd
             text: Assignment 3
 format:
   html:
