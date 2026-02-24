@@ -10,10 +10,12 @@ website:
         href: index.qmd
       - text: "About"
         href: about.qmd
-      - text: "Research"
-        href: project.qmd
       - text: "CV"
         href: Gohl, Kinlie_Curriculum_Vitae.pdf
+      - text: "Research"
+        menu: 
+          - href: Reading Notebook.qmd
+            text: Reading Notebook
       - text: "Reflections"
         menu: 
           - href: Breiman and Shmueli.qmd
@@ -22,13 +24,15 @@ website:
             text: AI and Originality
           - href: Using AI in Projects.qmd
             text: Using AI in Projects
+          - href: Humans and Knowledge.qmd
+            text: Humans and Knowledge
       - text: Assignments
         menu:
-          - href: assignment1.qmd
+          - href: Assignment 1.pdf
             text: Assignment 1
           - href: Assignment 2.pdf
             text: Assignment 2
-          - href: assignment3.qmd
+          - href: Assignment 3.qmd
             text: Assignment 3
 format:
   html:
