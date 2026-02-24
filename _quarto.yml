@@ -24,7 +24,7 @@ website:
             text: Using AI in Projects
       - text: Assignments
         menu:
-          - href: assignment1.qmd
+          - href: assignment 1.pdf
             text: Assignment 1
           - href: Assignment 2.pdf
             text: Assignment 2
