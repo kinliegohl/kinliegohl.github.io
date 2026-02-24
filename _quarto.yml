@@ -11,7 +11,9 @@ website:
       - text: "About"
         href: about.qmd
       - text: "Research"
-        href: project.qmd
+        menu: 
+          - href: Reading Notebook.qmd
+            text: Reading Notebook
       - text: "CV"
         href: Gohl, Kinlie_Curriculum_Vitae.pdf
       - text: "Reflections"
