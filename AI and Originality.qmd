@@ -1,5 +1,6 @@
 ---
 title: "AI and Originality"
+format: html
 ---
 
 With the emergence of AI, ChatGPT, and homework help, it has become easier to think less and have the computer work more. People are becoming more unoriginal and relying on AI and the internet to do the thinking for them. Previously when writing a research paper, a person would have to sift through articles, Google Scholar, and books to find evidence that supports their topic, but now, ChatGPT is able to populate 10 articles that directly correlate to the research in seconds. AI is decreasing our cognitive load and capabilities because it can give us precise information, ideas, answers, and work within no time. We no longer have to sit and think up research ideas; we can simply ask ChatGPT and it will have as many ideas as we want that all relate to our interests.
