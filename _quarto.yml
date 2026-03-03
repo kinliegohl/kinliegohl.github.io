@@ -16,6 +16,8 @@ website:
         menu: 
           - href: Reading Notebook.qmd
             text: Reading Notebook
+          - href: Association Rules.qmd
+            text: Association Rules
       - text: "Reflections"
         menu: 
           - href: Breiman and Shmueli.qmd
@@ -26,6 +28,8 @@ website:
             text: Using AI in Projects
           - href: Humans and Knowledge.qmd
             text: Humans and Knowledge
+          - href: Machine Learning Pipeline.qmd
+            text: Machine Learning Pipeline
       - text: Assignments
         menu:
           - href: Assignment 1.pdf

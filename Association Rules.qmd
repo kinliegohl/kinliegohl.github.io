@@ -1,0 +1,21 @@
+---
+title: "Association Rules"
+format: html
+---
+
+Association Rules
+
+An association rule identifies relationships between items in a dataset and can predict the related existence and behaviors in a data set. An association rule starts in the form of an expression X to Y, relating one occurrence to another. Sometimes association rules can be hidden and hard to mine. Data sources are large, have noise, and can have missing values if they are raw, but association rules make it easier to break down the data to understand patterns and correlations. There is also the challenge of finding an association that is interesting enough to work with and fits with the data. 
+There are two important qualities for an association: support and confidence. Confidence is the reliability of an interaction found by calculating the probability of one item influencing another. Support is how frequently a combination of items appear together relative to the number of interactions they have. 
+
+
+Data Mining and Unsupervised Learning
+
+Data mining is the broad field that focuses on pattern and relationship discovery with large databases. Some parts of data mining can include association rule mining, classification, or clustering. Whereas unsupervised learning is a sub-type of machine learning that focuses on discovering hidden structures in the data. Unsupervised learning can also include clustering and association rule mining since data mining is more of an umbrella term and includes unsupervised learning. Compared to supervised learning, which is where the machine learns from already coded and labelled databases, unsupervised learning can discover hidden connections without labels or variables that were inputted. 
+
+
+
+Zhang, S., & Wu, X. (2011). Fundamentals of association rules in data mining and knowledge discovery. Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 1(2), 97-116.
+
+
+Berry, M. W., Mohamed, A., & Yap, B. W. (Eds.). (2020). Supervised and unsupervised learning for data science (Vol. 10, pp. 978-3). Cham, Switzerland: Springer.

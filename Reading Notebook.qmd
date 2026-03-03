@@ -1,9 +1,7 @@
 ---
-title: "Research"
+title: "Reading Notebook"
 format: html
 ---
-Reading Notebook
-
 
 My reading notebook starts by listing out the book’s information. This includes the title, genre, author, type of reading, and what I hope to accomplish by the end. Once finished, I also like to write a summary of the reading and rate it out of 5 stars on understandability, captivation, length to meaningful content ratio, and how effectively it helped me reach the reason why I read it to begin with. I also include key points, vocabulary I didn’t understand, and meaningful arguments that made me think. If I am reading a research article or an academic book, I will list out a question or two I still have about the reading to bring forth discussion and future research. 
 
