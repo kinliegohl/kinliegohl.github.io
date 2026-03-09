@@ -30,6 +30,8 @@ website:
             text: Humans and Knowledge
           - href: Machine Learning Pipeline.qmd
             text: Machine Learning Pipeline
+          - href: Prediction vs Explanation.pdf
+            text: Prediction vs Explanation
       - text: Assignments
         menu:
           - href: Assignment 1.pdf
