@@ -32,6 +32,8 @@ website:
             text: Machine Learning Pipeline
           - href: Prediction vs Explanation.pdf
             text: Prediction vs Explanation
+          - href: Text Mining Patterns.qmd
+            text: Text Mining Patterns
       - text: Assignments
         menu:
           - href: Assignment 1.pdf

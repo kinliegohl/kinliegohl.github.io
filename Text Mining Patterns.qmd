@@ -1,0 +1,70 @@
+---
+title: "Text Mining Patterns"
+format: html
+---
+
+Text mining can reveal patterns for hidden statistical relationships, large patterns across multiple articles and readings, patterns over time, and on a large scale. Text mining differs from close reading because it operates on a larger scale. However, text mining also comes with disadvantages, including misinterpretations, false patterns, a lack of understanding of the full meaning, overfitting, and biases. Text mining is helpful when looking at trends over time, co-occurring patterns, cultural trends, and showing relationships between people and ideas. The disadvantages come from AI models not being able to notice sarcasm, tone, or trending references of slang. As well as suggesting patterns where they don’t exist, believing something is important because it is written often, overtraining, making the AI familiar with only a few specific text forms, and fragmenting the texts, which takes away the author’s voice.
+
+NLP and LLMs can strengthen my research project by helping extract, structure, and interpret datasets, mainly because they are large and structured. Since I am using NAEP reading scores and socioeconomic data, LLMs can help summarize the large amount of data we are getting from the US Census and the NAEP. LLMs can also help standardize the datasets and create meaningful relationships within the data. For example. State language is often inconsistent; they record low-income differently or “disadvantaged youth”, but do not list out how they vary from state to state. This will help us improve our models and reduce the time it takes to process the data. NLP can help with our research by analyzing patterns. For instance, topic modeling, which can identify themes such as remote learning. This helps to add depth to the data beyond numbers and helps quantify qualitative data. NLP can also help make structured variables from unstructured data. Oftentimes, state reports mention “learning loss” or “digital divide,” which may be tied to socioeconomic hardships within the student population, but we want NLP to look at these reports and create new explanatory variables that we can use with the other data.
+
+Some limitations when using NLP and LLMs include data bias, hallucinations, lack of true casual reasoning, data privacy, and inconsistency. LLMs are trained on existing data and have historical biases. This can skew results by overstating socioeconomic effects or underrepresenting marginalized groups. The solution would be to look at the datasets and cross-reference the validity, as well as use multiple data sources to fact check. Hallucinations are also a limitation of using the text mining models since they can fabricate statistics or report incorrect claims about causal relationships. The solution is to use LLMs and NLP as a tool instead of being reliant on it for facts. Additionally, LLMs can lack true casual reasoning because they sometimes identify patterns that don’t have causation. For instance, an LLM might suggest that the pandemic was the main cause of the decline in reading scores without taking into account socioeconomic factors that affect those scores. Using gradient boosting models, control variables, and pre and post pandemic scores would help mitigate the issue with lacking casual reasoning. Data privacy is also an issue with our research because we are working with reading scores and demographics. Focusing on state-level rather than individual data will help solve this problem. Lastly, inconsistency is common with LLMs because they can produce somewhat different answers for the same question. We would solve this problem by using the same prompt when working with AI models. Overall, LLMs and NLP can be powerful tools, but they need to be monitored and controlled to achieve the highest productivity in our research.
+
+AI for Research Guide:
+
+
+Brainstorming and Planning...
+
+
+
+Give AI a clear role
+
+Use consistent prompts
+
+Only use AI as a tool, not a reliance
+
+Use AI for planning and checking only, not for final conclusions
+
+
+
+Ethics...
+
+
+
+Monitor for biases and overtraining
+
+Never use personal information in AI models
+
+Use anonymous data only 
+
+Fact check information and research citations
+
+
+
+Technical Concerns
+
+
+
+Monitor for hallucinations
+
+Fact check information and research citations
+
+Cross check AI with the datasets
+
+Use proper regression and experiments to distinguish between correlation and causation
+
+Document prompts, steps and code for reproducibility
+
+
+
+Academic Concerns...
+
+
+
+Use AI only as a tool not a final product
+
+Rewrite main points and outputs
+
+Cite all sources
+
+Make your argument original
+
