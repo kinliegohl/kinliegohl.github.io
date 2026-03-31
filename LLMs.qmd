@@ -1,0 +1,12 @@
+---
+title: "LLMs"
+format: html
+---
+
+LLMs are good at recognizing patterns, structures, and language. They can explain text across multiple platforms, help brainstorm and create ideas, and recognize statistical relationships. LLMs tend to fail when you are looking for precision and long-term patterns. LLMs also have trouble when you are working with multi-step reasoning because they can create shortcuts or get lost in the process. When using LLMs, I have mainly encountered hallucinations where fake but plausible information is created. For instance, I have seen LLMs draw conclusions based on statements that are frequently written. An LLM has written that remote learning has widened the learning gaps without providing evidence to support this claim, as it is often cited in other texts.
+
+
+In the next 5 years, AI will most likely not have a huge effect on psychology because it is a discipline that relies on emotion and human experience, and AI has a hard time replicating those areas; unlike programming and marketing, which mainly use numbers and computers to make predictions and solve problems. For instance, therapists use tone, past experiences, empathy, and human experience to relate to their clients and perform their job. Research that uses numbers like statistical psychology and meta-analysis will change the most because it uses previously published research to make predictions, and LLMs and machine learning will be able to analyze these previously published texts. Whereas current research and person-based jobs like social workers, therapists, and psychologists will mostly remain unchanged because of their use of emotions and empathy.
+
+
+In statistical psychology and research, text analysis and data management will change the most because AI will be able to filter through thousands of articles in record time, making it significantly easier to write manuscripts and publish papers. Data management will change because it will be easier to generate longitudinal studies and make predictions about trends in research. Data collection will roughly stay the same because it still requires human participation. Imaging data will still need to be collected by humans and cannot be automated because of the level of specificity required. MRIs need to be closely monitored in case of an emergency, and PET scans require a trained professional to administer. Overall, after the initial data is collected, AI will play a part in analyzing and publishing works.

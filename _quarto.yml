@@ -34,6 +34,8 @@ website:
             text: Prediction vs Explanation
           - href: Text Mining Patterns.qmd
             text: Text Mining Patterns
+          - href: LLMs.qmd
+            text: LLMs
       - text: Assignments
         menu:
           - href: Assignment 1.pdf
