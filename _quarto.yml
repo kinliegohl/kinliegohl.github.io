@@ -36,6 +36,8 @@ website:
             text: Text Mining Patterns
           - href: LLMs.qmd
             text: LLMs
+          - href: RAG in Research.qmd
+            text: RAG in Research
       - text: Assignments
         menu:
           - href: Assignment 1.pdf
@@ -44,6 +46,8 @@ website:
             text: Assignment 2
           - href: Assignment 3.qmd
             text: Assignment 3
+          - href: Assignment 4.qmd
+            text: Assignment 4
 format:
   html:
     theme:
