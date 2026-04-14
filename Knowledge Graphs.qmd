@@ -1,0 +1,10 @@
+---
+title: "Knowledge Graphs"
+format: html
+---
+
+A knowledge graph is an organization method for nodes and edges. A node is a network, and their relationship is called the edge. A knowledge graph makes connections and gives meaning to those connections. It is different than a normal database because traditional databases use standard rows and columns for the data and the creation of relationships is not the main point of the database. A knowledge graph stores the data using nodes and edges and the relationships are made the primary focus. Compared to vector stores, vector stores have implied relationships that are not explicitly stated as they are in knowledge graphs. 
+
+Relationships between entities are valuable for knowledge mining because they provide more meaning to those relationships. They give reasoning between positions and let you make inferences about other areas. For instance, if A causes C and B is inside of A and C then it may be inferred that A can cause B as well. 
+
+Using my NAEP research, three entities could be the student demographic information, the year they took the NAEP exam, and the reading scores. Three relationships could be between students’ demographics and their scores, scores and the assessment year, and the student’s demographics and their grade levels. This structure can help answer questions that a flat database cannot because a knowledge graph can make connections between the scores, demographics, and grade levels directly and create trends across the years easier than flat databases can. Knowledge graphs are beneficial for asking complex questions and making inferences about information because a flat database does not lay out those relationships. With more pronounced relationships it is easier to see connections and build upon those already established relationships. 
