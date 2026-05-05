@@ -1,0 +1,14 @@
+---
+title: "Agentic AI Systems"
+format: html
+---
+
+AI for Science refers to the application of AI in scientific research. This encompasses generating hypotheses, brainstorming ideas, analyzing data, and writing manuscripts or papers. AI for Science integrates artificial intelligence and machine learning with scientific inquiry. These technologies complement each other, supporting research progress while maintaining the crucial human element in experiments. Common applications include machine learning data analysis, large dataset mining, literature review assistance, and formulating precise research questions.
+
+Building on this, agentic AI systems are creating a system of never-ending tasks, whereas a single prompt AI is about asking one question or using it to complete a single task. Agentic AI systems are expected to change the research workflow compared to single-prompt interactions by shifting from questions to tasks. Instead of asking questions to get a single response to the input, agentic AI systems will break down the input into steps to plan and execute. Instead of a single answer, you get a workflow system. Single prompt AI is mostly confined to reasoning over the provided information, while agentic AI systems can use external databases, run code, and work as an operator rather than an answering machine.
+
+Agentic AI systems use reasoning and can store memory. It can even go back and change its answers or findings based on new databases it uses when answering future questions. This relates to its feedback loop, where it can run multiple trials to produce the best output. The benefits of agentic AI systems are that they can decrease work time, expand the scope of your study, and work more as an assistant than a chatbot. The limitations include the possibility of errors in the work chain, the need for validation, and the system complexity.
+
+Overall, agentic AI systems are made to do more than assist with tasks, but their complexity and need for verification make it difficult for many people to get comfortable and start using agentic AI systems in their research.
+
+ 
