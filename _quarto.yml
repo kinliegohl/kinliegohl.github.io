@@ -38,13 +38,17 @@ website:
             text: LLMs
           - href: RAG in Research.qmd
             text: RAG in Research
+          - href: Knowledge Graph.qmd
+            text: Knowledge Graph
+          - href: Agentic AI Systems.qmd
+            text: Agentic AI Systems
       - text: Assignments
         menu:
           - href: Assignment 1.pdf
             text: Assignment 1
           - href: Assignment 2.pdf
             text: Assignment 2
-          - href: Assignment 3.qmd
+          - href: Assignment 3.pdf
             text: Assignment 3
           - href: Assignment 4.pdf
             text: Assignment 4
