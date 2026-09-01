@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Kinlie Gohl"
+  description: "Masters Student in the Social Data Analytics and Research Program"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: teaching.qmd
+        text: Teaching
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/kinliegohl/kinliegohl.github.io
+      - icon: envelope
+        href: mailto:kmg200008@utdallas.edu
+
+format:
+  html:
+    theme:
+      - zephyr
+    css: styles.css
+    toc: true
+
+editor: visual
+
