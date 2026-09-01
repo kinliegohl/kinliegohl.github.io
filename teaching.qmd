@@ -1,0 +1,12 @@
+---
+title: "Teaching"
+format: html
+---
+
+## Teaching Assistant
+
+**PSYC 2300 - Statistics in Psychology** *Spring 2023* . [Course materials](https://github.com/kinliegohl/kinliegohl.github.io/psyc2300)
+
+##Guest Lectures
+
+- "Lecture Title," EPPS XXXX, Spring 2026
