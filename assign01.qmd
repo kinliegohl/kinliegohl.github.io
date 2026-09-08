@@ -1,6 +1,9 @@
-# My Website
-
-## How to Rebuild the Site
+---
+title: "Assignment 1"
+format: html
+---
+My Website
+How to Rebuild the Site
 
 This website is creating using RStudio Quarto. The zephyr theme is used for a professional look. The navigation bar includes github and email links connecting to the my content in different areas.
 There are multiple tabs that show the different areas of my work including my CV, assignments, current research, and teaching experiences. 
@@ -12,35 +15,61 @@ To build the website, one must...
 3. New Directory
 4. Add Repository from local file C:\Users\kmg200008\OneDrive - The University of Texas at Dallas\Documents\kinliegohl.github.io
 
-## Build
+Build
 Edit quarto.yml to look like this
 
 project:
+
 	type: website
+	
 	output-dir: docs
+	
 website:
+
 	title: "Your Name"
+	
 	description: "One line about your research"
+	
 	navbar:
+	
 		left:
+		
 			- href: index.qmd
+			
 			text: Home
+			
 			- href: research.qmd
+			
 			text: Research
+			
 			- href: teaching.qmd
+			
 			text: Teaching
+			
 			- href: cv.qmd
+			
 			text: CV
+			
 		right:
+		
 			- icon: github
+			
 			href: https://github.com/USERNAME
+			
 			- icon: envelope
+			
 			href: mailto:you@utdallas.edu
+			
 format:
+
 	html:
+	
 		theme: cosmo # try: flatly, litera, journal, darkly, sandstone                   (choose 1)
+		
 		css: styles.css
+		
 		toc: true ]
+		
 
 
 Edit index to look like this
@@ -64,12 +93,13 @@ about:
 ---
 I am a masters student in the social data analytics and research program at the
 University of Texas at Dallas. My research examines ...
-## Research Interests
+
+Research Interests
 - Interest one
 - Interest two
 - Interest three
 
-## Run
+Run
 
 [Render pages in Rstudio once you are done.
 Then go to Github Desktop and commit any files to main.

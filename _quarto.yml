@@ -15,6 +15,12 @@ website:
         text: Teaching
       - href: cv.qmd
         text: CV
+      - text: Assignments
+        menu:
+        - href: assign01.qmd
+          text: Assignment 1
+        - href: assign02.qmd
+          text: Assignment 2
     right:
       - icon: github
         href: https://github.com/kinliegohl/kinliegohl.github.io

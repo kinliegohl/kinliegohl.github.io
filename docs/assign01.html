@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kinlie Gohl</title>
+<title>Assignment 1 – Kinlie Gohl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,6 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -90,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -143,57 +144,107 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#research-interests" id="toc-research-interests" class="nav-link active" data-scroll-target="#research-interests">Research Interests</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 14em; width: 14em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Kinlie Gohl</h1>
+<h1 class="title">Assignment 1</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><main class="content" id="quarto-document-content">
-
-<p>I am a masters student in Social Data Analytics and Research at the University of Texas at Dallas. My research examines…</p>
-<section id="research-interests" class="level2">
-<h2 data-anchor-id="research-interests">Research Interests</h2>
-<ul>
-<li>The use of psilocybin on treatment resistant depression</li>
-<li>The role of white matter integrity in age-related functional reorganization</li>
-<li>The use of reminders on age-related prospective memory tasks</li>
-</ul>
+  
 
 
-</section>
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="mailto:kmg200008@utdallas.edu" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://github.com/kinliegohl/kinliegohl.github.io" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=XXX" class="about-link" rel="" target="">
-    <i class="bi bi-mortarboard"></i>
-     <span class="about-link-text">Google Scholar</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+</header>
+
+
+<p>My Website How to Rebuild the Site</p>
+<p>This website is creating using RStudio Quarto. The zephyr theme is used for a professional look. The navigation bar includes github and email links connecting to the my content in different areas. There are multiple tabs that show the different areas of my work including my CV, assignments, current research, and teaching experiences. The front home page gives a short description of my research interests and my academic standing. To build the website, one must…</p>
+<ol type="1">
+<li>Open RStudio</li>
+<li>New Project</li>
+<li>New Directory</li>
+<li>Add Repository from local file C:- The University of Texas at Dallas.github.io</li>
+</ol>
+<p>Build Edit quarto.yml to look like this</p>
+<p>project:</p>
+<pre><code>type: website
+
+output-dir: docs</code></pre>
+<p>website:</p>
+<pre><code>title: "Your Name"
+
+description: "One line about your research"
+
+navbar:
+
+    left:
+    
+        - href: index.qmd
+        
+        text: Home
+        
+        - href: research.qmd
+        
+        text: Research
+        
+        - href: teaching.qmd
+        
+        text: Teaching
+        
+        - href: cv.qmd
+        
+        text: CV
+        
+    right:
+    
+        - icon: github
+        
+        href: https://github.com/USERNAME
+        
+        - icon: envelope
+        
+        href: mailto:you@utdallas.edu
+        </code></pre>
+<p>format:</p>
+<pre><code>html:
+
+    theme: cosmo # try: flatly, litera, journal, darkly, sandstone                   (choose 1)
+    
+    css: styles.css
+    
+    toc: true ]
+    </code></pre>
+<p>Edit index to look like this</p>
+<p>title: “Kinlie Gohl” image: profile.jpg about: template: trestles # or: jolla, solana, marquee, column (choose 1) image-shape: round image-width: 14em links: - icon: envelope text: Email href: mailto:kmg200008@utdallas.edu - icon: github text: GitHub href: https://kinliegohl.github.io/ - icon: mortarboard text: Google Scholar href: https://scholar.google.com/citations?user=XXXX — I am a masters student in the social data analytics and research program at the University of Texas at Dallas. My research examines …</p>
+<p>Research Interests - Interest one - Interest two - Interest three</p>
+<p>Run</p>
+<p>[Render pages in Rstudio once you are done. Then go to Github Desktop and commit any files to main. Push the origin. Fetch the origin. Go to github desktop and look at deployments. Wait and see if everything loads properly. Check your website https (make sure it is not local host) and check every page to see if its correct.]</p>
+<p>You’re done, everything should work properly. Consistently update your work when new .qmd files are created and add them to the main .yml document.</p>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
