@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "When Reminders Fail to Eliminate Age Differences in Prospective Memory with Ellis, D., Dupre, C. and Ball, H. - under review [PDF] [Code]\n\nProspective memory (PM) offloading – setting reminders to support future intentions – can help older adults mitigate age-related memory declines. However, prior research suggests they may not always fully benefit from available reminders. This study examined metacognitive factors influence age differences in PM offloading across three within-subjects conditions: forced internal (reminders set for no PM targets), forced external (reminders set for all PM targets), and choice (target-by-target reminder setting)."
-  },
-  {
-    "objectID": "research.html#working-papers",
-    "href": "research.html#working-papers",
-    "title": "Research",
-    "section": "",
-    "text": "When Reminders Fail to Eliminate Age Differences in Prospective Memory with Ellis, D., Dupre, C. and Ball, H. - under review [PDF] [Code]\n\nProspective memory (PM) offloading – setting reminders to support future intentions – can help older adults mitigate age-related memory declines. However, prior research suggests they may not always fully benefit from available reminders. This study examined metacognitive factors influence age differences in PM offloading across three within-subjects conditions: forced internal (reminders set for no PM targets), forced external (reminders set for all PM targets), and choice (target-by-target reminder setting)."
-  },
-  {
-    "objectID": "research.html#pubications",
-    "href": "research.html#pubications",
-    "title": "research",
-    "section": "Pubications",
-    "text": "Pubications\nGohl, K., Ellis, D, Dupre, C., and Ball, H (2026). “When Reminders Fail to Eliminate Age Differences in Prospective Memory.” Psychology and Aging, 12(3), 45-67. [DOI]"
-  },
-  {
     "objectID": "teaching.html",
     "href": "teaching.html",
     "title": "Teaching",
@@ -33,20 +12,6 @@
     "title": "Teaching",
     "section": "",
     "text": "PSYC 2300 - Statistics in Psychology Spring 2023 . Course materials\n##Guest Lectures\n\n“Lecture Title,” EPPS XXXX, Spring 2026"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "Curriculum Vitae",
-    "section": "",
-    "text": "Download PDF"
   },
   {
     "objectID": "index.html",
@@ -63,17 +28,45 @@
     "text": "Research Interests\n\nThe use of psilocybin on treatment resistant depression\nThe role of white matter integrity in age-related functional reorganization\nThe use of reminders on age-related prospective memory tasks"
   },
   {
-    "objectID": "research.html#publications",
-    "href": "research.html#publications",
-    "title": "Research",
-    "section": "Publications",
-    "text": "Publications\nGohl, K., Ellis, D., Dupre, C., and Ball, H. (2026). “When Reminders Fail to Eliminate Age Differences in Prospective Memory.” Psychology and Aging [DOI]"
-  },
-  {
     "objectID": "assign01.html",
     "href": "assign01.html",
     "title": "Assignment 1",
     "section": "",
     "text": "My Website How to Rebuild the Site\nThis website is creating using RStudio Quarto. The zephyr theme is used for a professional look. The navigation bar includes github and email links connecting to my content in different areas. There are multiple tabs that show the different areas of my work including my CV, assignments, current research, and teaching experiences. The front home page gives a short description of my research interests and my academic standing. To build the website, one must…\n\nOpen RStudio\nNew Project\nNew Directory\nAdd Repository from local file C:- The University of Texas at Dallas.github.io\n\nBuild\nEdit quarto.yml to look like this\nproject:\ntype: website\noutput-dir: docs\nwebsite:\ntitle: \"Your Name\"\ndescription: \"One line about your research\"\nnavbar:\n    left:\n        - href: index.qmd\n        text: Home\n        - href: research.qmd\n        text: Research\n        - href: teaching.qmd\n        text: Teaching\n        - href: Gohl, Kinlie_Curriculum_Vitae.pdf\n        text: CV\n        - text: Assignments\n        menu:\n        - href: assign01.qmd\n          text: Assignment 1\n        - href: assign02.qmd\n          text: Assignment 2\n    right:\n        - icon: github\n        href: https://github.com/USERNAME\n        - icon: envelope\n        href: mailto:you@utdallas.edu\n        \nformat:\nhtml:\n    theme: cosmo # try: flatly, litera, journal, darkly, sandstone                   (choose 1)\n    css: styles.css\n    toc: true ]\nEdit index to look like this\nTitle: name\nimage: picture.jpg\nabout:\n  template: jolla\n  image-shape: round\n  image-width: 14em\n  links:\n    - icon: envelope\n      text: Email\n      href: mailto:kmg200008@utdallas.edu\n    - icon: github\n      text: Github\n      href: https://github.com/kinliegohl/kinliegohl.github.io\n    - icon: mortarboard\n      text: Google Scholar\n      href: https://scholar.google.com/citations?user=XXX\nResearch Interests\n- Interest one\n- Interest two\n- Interest three\nRun\n[Render pages in Rstudio once you are done. Then go to Github Desktop and commit any files to main. Push the origin. Fetch the origin. Go to github desktop and look at deployments. Wait and see if everything loads properly. Check your website https (make sure it is not local host) and check every page to see if its correct.]\nYou’re done, everything should work properly. Consistently update your work when new .qmd files are created and add them to the main .yml document."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Download PDF"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "When Reminders Fail to Eliminate Age Differences in Prospective Memory with Ellis, D., Dupre, C. and Ball, H. - under review [PDF] [Code]\n\nProspective memory (PM) offloading – setting reminders to support future intentions – can help older adults mitigate age-related memory declines. However, prior research suggests they may not always fully benefit from available reminders. This study examined metacognitive factors influence age differences in PM offloading across three within-subjects conditions: forced internal (reminders set for no PM targets), forced external (reminders set for all PM targets), and choice (target-by-target reminder setting)."
+  },
+  {
+    "objectID": "research.html#working-papers",
+    "href": "research.html#working-papers",
+    "title": "Research",
+    "section": "",
+    "text": "When Reminders Fail to Eliminate Age Differences in Prospective Memory with Ellis, D., Dupre, C. and Ball, H. - under review [PDF] [Code]\n\nProspective memory (PM) offloading – setting reminders to support future intentions – can help older adults mitigate age-related memory declines. However, prior research suggests they may not always fully benefit from available reminders. This study examined metacognitive factors influence age differences in PM offloading across three within-subjects conditions: forced internal (reminders set for no PM targets), forced external (reminders set for all PM targets), and choice (target-by-target reminder setting)."
+  },
+  {
+    "objectID": "research.html#publications",
+    "href": "research.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\nGohl, K., Ellis, D., Dupre, C., and Ball, H. (2026). “When Reminders Fail to Eliminate Age Differences in Prospective Memory.” Psychology and Aging [DOI]"
   }
 ]
