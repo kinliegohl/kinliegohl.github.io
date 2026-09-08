@@ -103,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="./Gohl, Kinlie_Curriculum_Vitae.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -180,55 +180,58 @@ ul.task-list li input[type="checkbox"] {
 <p>Build Edit quarto.yml to look like this</p>
 <p>project:</p>
 <pre><code>type: website
-
 output-dir: docs</code></pre>
 <p>website:</p>
 <pre><code>title: "Your Name"
-
 description: "One line about your research"
-
 navbar:
-
     left:
-    
         - href: index.qmd
-        
         text: Home
-        
         - href: research.qmd
-        
         text: Research
-        
         - href: teaching.qmd
-        
         text: Teaching
-        
-        - href: cv.qmd
-        
+        - href: Gohl, Kinlie_Curriculum_Vitae.pdf
         text: CV
-        
+        - text: Assignments
+        menu:
+        - href: assign01.qmd
+          text: Assignment 1
+        - href: assign02.qmd
+          text: Assignment 2
     right:
-    
         - icon: github
-        
         href: https://github.com/USERNAME
-        
         - icon: envelope
-        
         href: mailto:you@utdallas.edu
         </code></pre>
 <p>format:</p>
 <pre><code>html:
-
     theme: cosmo # try: flatly, litera, journal, darkly, sandstone                   (choose 1)
-    
     css: styles.css
-    
-    toc: true ]
-    </code></pre>
+    toc: true ]</code></pre>
 <p>Edit index to look like this</p>
-<p>title: “Kinlie Gohl” image: profile.jpg about: template: trestles # or: jolla, solana, marquee, column (choose 1) image-shape: round image-width: 14em links: - icon: envelope text: Email href: mailto:kmg200008@utdallas.edu - icon: github text: GitHub href: https://kinliegohl.github.io/ - icon: mortarboard text: Google Scholar href: https://scholar.google.com/citations?user=XXXX — I am a masters student in the social data analytics and research program at the University of Texas at Dallas. My research examines …</p>
-<p>Research Interests - Interest one - Interest two - Interest three</p>
+<pre><code>Title: name
+image: picture.jpg
+about:
+  template: jolla
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:kmg200008@utdallas.edu
+    - icon: github
+      text: Github
+      href: https://github.com/kinliegohl/kinliegohl.github.io
+    - icon: mortarboard
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=XXX</code></pre>
+<p>Research Interests</p>
+<p>- Interest one</p>
+<p>- Interest two</p>
+<p>- Interest three</p>
 <p>Run</p>
 <p>[Render pages in Rstudio once you are done. Then go to Github Desktop and commit any files to main. Push the origin. Fetch the origin. Go to github desktop and look at deployments. Wait and see if everything loads properly. Check your website https (make sure it is not local host) and check every page to see if its correct.]</p>
 <p>You’re done, everything should work properly. Consistently update your work when new .qmd files are created and add them to the main .yml document.</p>
