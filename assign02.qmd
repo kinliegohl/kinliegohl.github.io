@@ -57,9 +57,9 @@ plot(TrumpHarrisElection)
 write_csv(the_df, paste0("gtrends_us_5y_", Sys.Date(), ".csv"))
 ```
 
-|                    |                     |
-|:------------------:|---------------------|
-| ![](trump all.png) | ![](kamala all.png) |
+|                      |                       |
+|:--------------------:|-----------------------|
+| ![](trump%20all.png) | ![](kamala%20all.png) |
 
 **Questions**
 
