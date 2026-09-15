@@ -21,3 +21,5 @@ data-raw/
 
 # Note: docs/ is deliberately NOT ignormed - it is your published website.
 **/*.quarto_ipynb
+
+
