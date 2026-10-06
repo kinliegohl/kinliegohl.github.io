@@ -1,0 +1,198 @@
+---
+title: "Assignment 4"
+format: html
+---
+
+Permission
+
+Before scraping the Wikipedia page, I checked if access was permitted using robots.txt. The Wikipedia path was checking with robotstxt::paths_allowed().
+
+```         
+library(robotstxt)
+
+paths_allowed(
+  "https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves"
+)
+```
+
+Scraping a Static Page
+
+Firstly, I practiced web scraping using the Books to Scrape, which is a sandbox designed for scraping. Using the vest package, I used read)html() to retrieve the webpage and html_elements(), html_text2(), and html_attr() to extract book information.
+
+```         
+library(rvest)
+library(dplyr)
+library(stringr)
+
+url <- "https://books.toscrape.com/"
+page <- read_html(url)
+
+# Example extraction
+titles <- page |>
+  html_elements(".product_pod h3 a") |>
+  html_attr("title")
+
+prices <- page |>
+  html_elements(".price_color") |>
+  html_text2()
+
+ratings <- page |>
+  html_elements(".star-rating") |>
+  html_attr("class") |>
+  str_remove("star-rating ")
+
+books <- data.frame(
+  title = titles,
+  price = prices,
+  rating = ratings
+)
+```
+
+Wikipedia Foreign-Exchange Reserves
+
+Next I scraped the Wikipedia table with the countries' foreign-exchange reserves. The page had several HTML tables so I inspected the tables to identify the correct ones.
+
+```         
+tables <- read_html(
+  "https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves"
+) |>
+  html_table()
+
+length(tables)
+
+lapply(tables, function(x) {
+  c(rows = nrow(x), columns = ncol(x))
+})
+```
+
+The table I wanted to focus on was the third table which contained 198 rows and 8 columns. I renamed the columns and cleaned the data.
+
+```         
+forex_raw <- tables[[3]]
+
+forex <- forex_raw |>
+  rename(
+    country = 1,
+    continent = 2,
+    reserves_including_gold = 3,
+    change_including_gold = 4,
+    reserves_excluding_gold = 5,
+    change_excluding_gold = 6,
+    date = 7,
+    reference = 8
+  )
+```
+
+The Wikipedia page also contained multiple headers, footnotes, and formatting errors so I used parse_number() to convert the reserve values into numerical values. I also changed the reporting date and converted the millions of dollars to dollars so that the values would line up with the World Bank.
+
+```         
+library(readr)
+
+forex <- forex |>
+  mutate(
+    reserves_including_gold = parse_number(reserves_including_gold),
+    change_including_gold = parse_number(change_including_gold),
+    reserves_excluding_gold = parse_number(reserves_excluding_gold),
+    change_excluding_gold = parse_number(change_excluding_gold)
+  )
+  
+  forex <- forex |>
+  filter(
+    !str_detect(country, "Country\\(as recognized by the UN\\)")
+  ) |>
+  filter(!country %in% c("World", "Total"))
+  
+  forex <- forex |>
+  mutate(
+    date = as.Date(date, format = "%d %B %Y")
+  )
+  
+  forex <- forex |>
+  mutate(
+    reserves_wiki_usd = reserves_including_gold * 1000000
+  )
+```
+
+What broke?
+
+When I changed the Wikipedia table, the original scraping code did not work because the new table had a different HTML structure and different column names. The original assumptions about the table no longer matched the data. This change shows a weakness to web scraping and how a scraper depends on the current structure of a webpage and how it can change if the layout is adjusted.
+
+Comparing Wikipedia and the World Bank API
+
+The World Bank provides general quantity through indicator FI.RES.TOTL.CD, total reserves, gold and USD.
+
+```         
+library(WDI)
+
+wdi_reserves <- WDI(
+  indicator = "FI.RES.TOTL.CD",
+  start = 2024,
+  end = 2025
+)
+```
+
+I compared the Wikipedia observations with the World Bank observations. Then I joined the data sets by country and calculated the differences and percent differences.
+
+```         
+wdi_latest <- wdi_reserves |>
+  group_by(iso3c, country) |>
+  filter(year == max(year, na.rm = TRUE)) |>
+  ungroup() |>
+  rename(reserves_wdi = FI.RES.TOTL.CD)
+  
+  comparison <- forex |>
+  select(country, date, reserves_wiki_usd) |>
+  inner_join(
+    wdi_latest |>
+      select(country, year, reserves_wdi),
+    by = "country"
+  ) |>
+  mutate(
+    difference = reserves_wiki_usd - reserves_wdi,
+    percent_difference = 100 * difference / reserves_wdi
+  )
+```
+
+The results showed differences in the Wikipedia value for the United States at \$253.8 billion while the World Bank's value was at \$1.39 trillion. Belgium's Wikipedia value was around \$82 billion compared to \$56.4 billion in the World Bank's database. Greece's Wikipedia value was around #3.93 billion and the World Bank's value was \$24 billion.
+
+The differences are partly related to the reporting dates and data vintage, which is when the dataset was released. Wikipedia's observations are dated as March 2024 and the World Bank uses 2025. As seen in Bolivia, Wikipedia estimated \$1.77 billion in 2024 but the World Bank's 2024 data shows \$1.98 billion and \$0.58 billion in 2025. Differences may also come from reporting dates, revisions, and how each table showcases the numbers.
+
+Two sources can appear to measure the same quantity while reporting different observations becasue they use different dates and collection methods.
+
+Scraping is the right tool when information is publicaly available on a website without an API, downloadable data set, or other methods to get the data. An API is generally preferred to gather bulk data sets because it is more structured, reproducible, and less vulnerable to changes.
+
+Data Plan
+
+For my research I plan to collect municipal data from Colorado city council meeting minutes and related city government documents. My main source for identifying municipalities and locating their government websites will be the Colorado Municipal League. The goal is to identify and analyze grant funding and other financial support for arts and culture work. City council minutes are useful because they document decisions made by municipal governments, including approvals and rejections related to grants, contracts, and funding allocation for the arts and culture programs. I would collect information like the city, meeting date, organization receiving funding, amount of funding, type of arts and cultural activies, and the purpose of the funding. The CML page currently lists 269 of Colorado's 272 mincipalities as members.
+
+I will use the CML directory as the starting point for identifying municipalities and then follow the links to individual municipal websites to locate city council agendas, minutes, packets, and related documents.
+
+Because the CML website serves as a directory, I will check the relevant robots.txt file and Terms of Service before collecting data. I will also check the policies of individual municipal websites when I access their minutes. I will also follow any restrictions on automated access and avoid scraping pages where automated collecting is prohibited.
+
+API Availability
+
+CML provides a directory but the meeting minutes are government owned. I would first determine if there is an API, open portal, or searchable database for the records. I would use this as the preferred method before scraping.
+
+Volume
+
+The amount of data depends on the number of Colorado municipalities and years included in the study. For each observation, I would record the municipality, meeting date, document URL, date accessed, and source document so each funding observation can be traced back to the original record.
+
+What could break?
+
+The data collection process could break if CML changes its directory structure or if a municipality changed its website. As well as if a city moved in minutes to a different document management system. Municipalities can also publish records in different formats like HTML, PDF, or scanned documents. The content itself may change between municipalities. Arts and culture funding can be described using different terms or described differently. I would therefore use multiple search terms and review a sample of records to make sure that relevant funding decisions are being collected.
+
+Data Organization
+
+I would create a structured dataframe containing
+
+- City
+- Meeting dates
+- Organizations
+- Funding amounts
+- Funding types
+- Arts and culture categories
+- Descriptions
+- Document URLs
+- Source documents
+
+Standardizing the dates and funding amounts while retaining the original text from the meeting will create a cohesive table and structure. Overall CML provides an efficient starting point for gathering Colorado municipalities and locating their official websites, while municipal websites themselves provide the records used in the research.
