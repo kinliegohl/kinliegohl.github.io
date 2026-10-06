@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Kinlie Gohl</title>
+<title>Assignment 3 – Kinlie Gohl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -191,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Assignment 3</h1>
 </div>
 
 
@@ -208,13 +173,192 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<ol type="1">
+<li><p>Setup</p>
+<p>#Packages</p>
+<pre><code>library(tidycensus)
+library(tigris)
+library(sf)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(readr)</code></pre>
+<pre><code>options(tigris_use_cache = TRUE)</code></pre></li>
+</ol>
+<p>The Census API key was installed separately in the console and is stored in .Renviron which is not included in this document.</p>
+<pre><code># The API key is installed once in the R console.
+# census_api_key("YOUR_CENSUS_KEY", install = TRUE)</code></pre>
+<ol start="2" type="1">
+<li><p>Geography and Variables</p>
+<p>I used Texas counties as the geographical unit. I used median household income as the variable for the map and the poverty rate for the table. For the poverty variable, I used both the numbers below the poverty level and the total population of people in poverty to calculate a rate rather than using a count.</p>
+<pre><code># Explore Census variables
+vars &lt;- load_variables(2024, "acs5")
+
+vars |&gt;
+  dplyr::filter(grepl("^B19", name)) |&gt;
+  dplyr::slice_head(n = 10)
+# Parameters
+state_abbr &lt;- "TX"
+geo_level &lt;- "county"
+
+my_vars &lt;- c(
+  income = "B19013_001",      # Median household income
+  pov = "B17001_002",         # People below poverty
+  povden = "B17001_001"       # Poverty universe / denominator
+)
+
+year_acs &lt;- 2024
+survey &lt;- "acs5"</code></pre></li>
+<li><p>Downloading Census Data</p>
+<pre><code>acs_wide &lt;- get_acs(
+  geography = geo_level,
+  variables = my_vars,
+  state = state_abbr,
+  year = year_acs,
+  survey = survey,
+  geometry = TRUE,
+  output = "wide"
+)</code></pre>
+<p>The ACS data includes both estimates and margins of error. The margin of error stays because ACS estimates are based on a sample rather than a census population.</p></li>
+<li><p>Calculating Poverty Rate and Margin of Error</p>
+<pre><code>acs_wide &lt;- acs_wide |&gt;
+  mutate(
+    pov_rate = povE / povdenE,
+    pov_moe = moe_prop(
+      povE,
+      povdenE,
+      povM,
+      povdenM
+    )
+  )</code></pre>
+<p>The poverty rate is calculated by dividing the estimated number of people below the poverty level by the estimated population of impoverished people. The moe_prop() function calculates the margin of error and accounts for the uncertainty in both the total number of people in poverty and the number of people living below the poverty line.</p></li>
+<li><p>Map</p>
+<pre><code>ggplot(acs_wide) +
+  geom_sf(aes(fill = incomeE), color = NA) +
+  scale_fill_viridis_c(
+    name = "Median HH Income",
+    labels = scales::label_dollar()
+  ) +
+  labs(
+    title = paste0(
+      "ACS ", year_acs,
+      " 5-year: Median Household Income — ",
+      state_abbr,
+      " (", geo_level, ")"
+    ),
+    caption = "Source: U.S. Census Bureau via tidycensus"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "Palatino"),
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.caption = element_text(size = 8),
+    legend.position = "inside",
+    legend.position.inside = c(0.2, 0.15)
+  )</code></pre></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="5 year med income.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
+<p>The map shows the median household income for each county in Texas. Darker and lighter areas represent the different estimated levels of median income.</p>
+<ol start="6" type="1">
+<li>Top and Bottom 10 Counties by Poverty Rate</li>
+</ol>
+<pre><code>top10 &lt;- acs_wide |&gt;
+  st_drop_geometry() |&gt;
+  arrange(desc(pov_rate)) |&gt;
+  select(
+    NAME,
+    pov_rate,
+    pov_moe,
+    povE,
+    povM
+  ) |&gt;
+  slice_head(n = 10) |&gt;
+  mutate(
+    poverty_rate = pov_rate * 100,
+    margin_of_error = pov_moe * 100
+  ) |&gt;
+  select(
+    NAME,
+    poverty_rate,
+    margin_of_error,
+    povE,
+    povM
+  )</code></pre>
+<pre><code>bottom10 &lt;- acs_wide |&gt;
+  st_drop_geometry() |&gt;
+  arrange(pov_rate) |&gt;
+  select(
+    NAME,
+    pov_rate,
+    pov_moe,
+    povE,
+    povM
+  ) |&gt;
+  slice_head(n = 10) |&gt;
+  mutate(
+    poverty_rate = pov_rate * 100,
+    margin_of_error = pov_moe * 100
+  ) |&gt;
+  select(
+    NAME,
+    poverty_rate,
+    margin_of_error,
+    povE,
+    povM
+  )</code></pre>
+<p>Top 10</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="top 10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
+<p>Bottom 10</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bottom 10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>The tables shows the counties with the highest and lowest poverty rates. The margin of error is shown beside each estimate to show the uncertainty of the ACS estimates.</p>
+<ol start="7" type="1">
+<li><p>Uncertainty Check</p>
+<pre><code>uncertainty &lt;- acs_wide |&gt;
+  st_drop_geometry() |&gt;
+  mutate(
+    poverty_rate = pov_rate * 100,
+    margin_of_error = pov_moe * 100,
+    lower = poverty_rate - margin_of_error,
+    upper = poverty_rate + margin_of_error
+  ) |&gt;
+  arrange(desc(poverty_rate)) |&gt;
+  select(
+    NAME,
+    poverty_rate,
+    margin_of_error,
+    lower,
+    upper
+  )</code></pre></li>
+</ol>
+<p>Using a 90% confidence interval, the poverty rate estimate and margin of error were calculated. Two counties can have different estimated poverty rates while their confidence intervals overlap. When confidence intervals overlap, the difference in the point estimates does not mean there is a clear difference in the poverty rates. The rankings have some uncertainty.</p>
+<p>One pair of counties with overlapping intervals are Dimmit county and Zapata county. Dimmit county has an estimated poverty rate of 41.11% with a margin of 8.88%, which gives an interval of 32.23% to 49.98%. Zapata county has an estimated poverty rate of 38.39% with a margin of 6.04%, giving an interval of 32.35% to 44.44%. Because these intervals overlap, the difference between their estimated poverty rates should be interpreted lightly. Dimmit does have a higher point estimate but the overlapping intervals indicate that the estimates are not separated enough to treat the rankings as a difference in poverty rates.</p>
+<ol start="8" type="1">
+<li><p>Methods Note</p>
+<p>I used Texas counties as the geographical unit and the 2024 American Community Survey 5 year estimates. I used median household income for the map and poverty variables for the table. The poverty variable is a count of people below the poverty line, so I divided it by the total population in the poverty universe which calculated the poverty rate. By retaining the ACS margins of error and using moe_prop(), I was able to manage uncertainty in the calculated poverty rates. The margin of error is important because ACS estimates are often based on a sample and contains sample uncertainty. Counties with similar estimated poverty rates may have overlapping confidence intervals and show how their rankings should be interpreted with caution rather than taken as estimates of exact values.</p></li>
+<li><p>Saving</p>
+<pre><code>write_csv(
+  st_drop_geometry(acs_wide),
+  paste0(
+    "acs_",
+    state_abbr,
+    "_",
+    year_acs,
+    ".csv"
+  )
+)</code></pre></li>
+</ol>
 
 
 
