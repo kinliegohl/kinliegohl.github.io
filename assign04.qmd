@@ -185,14 +185,14 @@ Data Organization
 
 I would create a structured dataframe containing
 
-- City
-- Meeting dates
-- Organizations
-- Funding amounts
-- Funding types
-- Arts and culture categories
-- Descriptions
-- Document URLs
-- Source documents
+-   City
+-   Meeting dates
+-   Organizations
+-   Funding amounts
+-   Funding types
+-   Arts and culture categories
+-   Descriptions
+-   Document URLs
+-   Source documents
 
 Standardizing the dates and funding amounts while retaining the original text from the meeting will create a cohesive table and structure. Overall CML provides an efficient starting point for gathering Colorado municipalities and locating their official websites, while municipal websites themselves provide the records used in the research.
