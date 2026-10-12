@@ -114,7 +114,7 @@ The Census API key was installed separately in the console and is stored in .Ren
       )
     ```
 
-![](5 year med income.png){fig-align="center"}
+![](5%20year%20med%20income.png){fig-align="center"}
 
 The map shows the median household income for each county in Texas. Darker and lighter areas represent the different estimated levels of median income.
 
@@ -172,11 +172,11 @@ bottom10 <- acs_wide |>
 
 Top 10
 
-![](top 10.png){fig-align="center"}
+![](top%2010.png){fig-align="center"}
 
 Bottom 10
 
-![](bottom 10.png){fig-align="center"}
+![](bottom%2010.png){fig-align="center"}
 
 The tables shows the counties with the highest and lowest poverty rates. The margin of error is shown beside each estimate to show the uncertainty of the ACS estimates.
 
