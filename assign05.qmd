@@ -2,3 +2,89 @@
 title: "Assignment 5"
 format: html
 ---
+
+API Search and Download
+
+Using "Committee on Foreign Relations" and sorted from newest to oldest the API reported 1,208 records. I selected the first 10 and saved them my .gitignore file.
+
+```         
+library(httr2)
+library(purrr)
+library(tibble)
+library(readr)
+
+api_key <- Sys.getenv("GOVINFO_API_KEY")
+
+body <- list(
+  query = 'collection:(CHRG) AND "Committee on Foreign Relations"',
+  pageSize = 100,
+  offsetMark = "*",
+  sorts = list(
+    list(field = "publishdate", sortOrder = "DESC")
+  )
+)
+
+found <- request("https://api.govinfo.gov/search") |>
+  req_url_query(api_key = api_key) |>
+  req_body_json(body) |>
+  req_perform() |>
+  resp_body_json()
+
+latest10 <- found$results[1:10]
+
+api <- map_dfr(latest10, function(x) {
+  tibble(
+    title = x[["title"]],
+    packageId = x[["packageId"]],
+    dateIssued = x[["dateIssued"]],
+    collectionCode = x[["collectionCode"]]
+  )
+})
+
+write_csv(api, "logs/govinfo_api_results.csv")
+```
+
+Challenges
+
+Missing packages was my biggest issue with httr2 and purrr caused blank downloads to come back. By loading the required packages and selected only the fields needed I was able to generate the results table. I initially received HTTP 401 Errors because the API key was missing. I added the key and that resolved the issues; then I stored the key in .Renviron.
+
+Search Comparison
+
+After manually exporting the GovInfo results i compared the first ten IDs with the API results. Below is the code used to run the comparison.
+
+```         
+manual <- read_csv("govinfo_search.csv", show_col_types = FALSE)
+api <- read_csv(
+  "logs/govinfo_api_results.csv",
+  show_col_types = FALSE
+)
+
+comparison <- data.frame(
+  position = 1:10,
+  manual_package_id = head(manual$packageId, 10),
+  api_package_id = head(api$packageId, 10)
+)
+
+comparison$match <- comparison$manual_package_id ==
+  comparison$api_package_id
+
+print(comparison)
+
+# Check whether any package IDs appear in both lists
+intersect(
+  head(manual$packageId, 10),
+  head(api$packageId, 10)
+)
+```
+
+None of the ten records matched with the API results. The manual export included hearings from multiple committees, which the API focused on "committee on foreign relations". The GovInfo search may have used different criteria to filter and find the proper information related to the search.
+
+The downloaded PDFs are useful for reading and analyzing the content but not for analysis. First the PDFs had to be turned into a table which means all the texts from the PDFs has to be cleaned and organized so it provides the information I request.
+
+Improvements
+
+The PDFs provide full hearing documents but require text extraction and cleaning before the analysis. This included removing page numbers, headers, and line breaks. The workflow could be improved by verifying searches, validating files, and logging failed code attempts. Making sure the manual search and API requests use the same search terms, sorting, and filters would make the process a lot easier because there would be more similarities.
+
+Value of API
+
+The API provides structured data and a way to replicate the searches easily with the newest records. Compared with previous scrapings, the API also provides data in a more consistent form that reduces the amount of cleaning and text extractions needed.
