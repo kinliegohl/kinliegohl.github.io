@@ -27,6 +27,12 @@ website:
           text: Assignment 4
         - href: assign05.qmd
           text: Assignment 5
+        - href: assign06.qmd
+          text: Assignment 6
+        - href: assign07.qmd
+          text: Assignment 7
+        - href: assign08.qmd
+          text: Assignment 8
     right:
       - icon: github
         href: https://github.com/kinliegohl/kinliegohl.github.io
