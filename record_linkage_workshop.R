@@ -188,7 +188,20 @@ trs_clean <- trs_data %>%
     first_initial = substr(first_name_std, 1, 1),
     dob_std = standardize_date(dob)
   )
+agreement_rates <- weight_comparisons %>%
+  summarise(
+    # Agreement among true matches (m)
+    m_first = mean(first_agree[true_match]),
+    m_last = mean(last_agree[true_match]),
+    m_dob = mean(dob_agree[true_match]),
 
+    # Agreement among nonmatches (u)
+    u_first = mean(first_agree[!true_match]),
+    u_last = mean(last_agree[!true_match]),
+    u_dob = mean(dob_agree[!true_match])
+  )
+
+print(agreement_rates, width = Inf)
 tea_clean <- tea_data %>%
   mutate(
     first_name_std = standardize_names(first_name),
